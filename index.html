@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="main.js" type="script"></script>
+</head>
+
+<body>
+
+    Select Subject: <select name="subject" id="subject" onchange="displaySubjectInfo(this.value)">
+        <option value="java">Java</option>
+        <option value="cpp">C++</option>
+        <option value="c">C</option>
+        <option value="python">Python</option>
+    </select>
+
+    <div>
+        Name : <span id="name"></span> <br>
+        Father : <span id="father"></span> <br>
+        Year : <span id="year"></span> <br>
+    </div>
+</body>
+<script>
+    function displaySubjectInfo(subjectId) {
+        var subject = getSubject(subjectId);
+        document.getElementById('name').innerHTML = subject.name;
+        document.getElementById('father').innerHTML = subject.father;
+        document.getElementById('year').innerHTML = subject.year;
+    }
+
+    function getSubject(subjectId) {
+
+        var subjects = [{
+                name: "java",
+                father: "Games Gosling",
+                year: 1995
+            },
+            {
+                name: "cpp",
+                father: "John Doe",
+                year: 1980
+            },
+            {
+                name: "c",
+                father: "Denis Retchie",
+                year: 1974
+            },
+            {
+                name: "python",
+                father: "Mathew",
+                year: 1998
+            }
+        ];
+        var subject = {
+                name: "",
+                father: "",
+                year: 0
+            };
+
+            for (var i = 0; i < 4; i++) {
+                if (subjectId == subjects[i].name) {
+                    subject = subjects[i];
+                }
+            }
+
+        return subject;
+
+    }
+</script>
+
+</html>
